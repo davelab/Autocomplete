@@ -76,8 +76,6 @@ const Autocomplete = ({ src, srcName }: AutocompleteProps) => {
         `option-${currentFocus}`
       );
 
-      console.log(elementHighlighted?.getAttribute("data-value"));
-
       if (elementHighlighted)
         onOptionClick(elementHighlighted?.getAttribute("data-value"));
     }
