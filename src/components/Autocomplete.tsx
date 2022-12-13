@@ -55,8 +55,6 @@ const Autocomplete = ({ src, srcName }: AutocompleteProps) => {
       setInputError(false);
     }
 
-    console.log(e);
-
     handleSearchChange(e);
   };
 
