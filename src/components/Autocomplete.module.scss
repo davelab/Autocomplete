@@ -1,0 +1,143 @@
+$inputBigWidth: 100%;
+
+$selectedItemBigWidth: 240px;
+
+.autocompleteContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-radius: 4px;
+  width: $inputBigWidth;
+  padding: 0px 8px;
+  background-color: transparent;
+  border: 1px solid #0f5c94;
+
+  &:focus-within {
+    border: 1px solid lightblue;
+    background-color: white;
+  }
+  &.error {
+    border: 1px solid darkred;
+  }
+}
+
+.autocompleteInput {
+  all: unset;
+  display: flex;
+  align-items: center;
+  flex: auto;
+  width: 100%;
+  height: 38px;
+  color: #222;
+
+  &:focus {
+    caret-color: #4c6272;
+  }
+  &.error {
+    border-color: darkred;
+  }
+}
+
+.selectedItem {
+  text-align: left;
+  padding: 4px;
+  background: lightblue;
+  border-radius: 4px;
+  max-width: $selectedItemBigWidth;
+  font-weight: 500;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.autocompleteWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.autocompleteDropdown {
+  position: absolute;
+  top: 40px;
+  width: $inputBigWidth;
+  flex-direction: column;
+  display: block;
+  z-index: 2;
+  left: 0;
+  background-color: white;
+  overflow: auto;
+  border-radius: 4px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.226);
+}
+
+.dropdownListWrapper {
+  padding: 0 8px 8px;
+}
+
+.autocompleteOption {
+  color: #222;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+
+  &:hover,
+  &.selected {
+    background: lightblue;
+
+    &:not(:last-of-type) {
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  &:not(:last-of-type) {
+    &:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #f2f2f2;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.dropdownTitle {
+  color: #666;
+  padding: 8px 8px 0;
+  margin-bottom: 8px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+
+  &.error {
+    color: darkred;
+  }
+
+  &.dropdownTitleLight {
+    color: #999;
+    strong {
+      font-weight: 800;
+      color: #666;
+    }
+  }
+}
+
+.clearIcon {
+  cursor: pointer;
+  visibility: hidden;
+  &.show {
+    visibility: visible;
+  }
+}
+
+.spinnerContainer {
+  width: 100%;
+  text-align: center;
+}
